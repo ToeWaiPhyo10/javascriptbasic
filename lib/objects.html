@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Objects</title></head>
+    <body>
+        <script>
+            const marvel = [];
+            marvel.push(Blade());
+            marvel.push(Blade());
+            marvel.push(Blade());
+            function Blade(){
+                const weapons = ["Sword", "Pistol", "RPG", "Machineguns"];
+                const weapon = weapons[Math.floor(Math.random() * weapons.length)];
+                const power = Math.random() * 0.5 + 0.5;
+                const strength = Math.random() + 1.0;
+                const damage = 0;
+                return { power, weapon, strength, damage };
+            } 
+             
+        </script>
+    </body>
+</html>

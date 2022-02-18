@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Loop
+        </title>
+    </head>
+    <body>
+        <script>
+            const marvel = [];
+            const useFor = true;
+            if (useFor){
+                for(let i=0; i<10; i++){
+                    marvel.push(Blade());
+                }
+            }else{
+                let i = 0;
+                while(i<10){
+                    marvel.push(Blade());
+                    i++;
+                }
+            }
+            const MOM = marvel[0];
+            console.log("marvel[0] has the following properties... ");
+            for(let strange in MOM){
+                console.log(strange + ":" + MOM[strange]);
+            }
+            let i=0;
+            marvel.forEach( MOM =>{
+                console.log('MOM '+i+' uses a '+MOM.weapon+' as its chosen weapon.');
+                i++;
+            })
+            function Blade(){
+                const weapons = ["Sword", "Pistol", "RPG", "Machineguns"];
+                const weapon = weapons[Math.floor(Math.random() * weapons.length)];
+                const power = Math.random() * 0.5 + 0.5;
+                const strength = Math.random() + 1.0;
+                const damage = 0;
+                return { power, weapon, strength, damage };
+            }
+        </script>
+    </body>
+</html>

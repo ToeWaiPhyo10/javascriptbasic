@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scope</title>
+    </head>
+    <body>
+        <script>
+          console.clear();
+    
+          const name = "Toe Wai Phyo";
+    
+          console.log(`name=${name}`);
+          myFunc();
+    
+          function myFunc(){
+            console.log(`Inside myFunc name=${name}`);
+      
+            if (true){
+              let course = "JavaScript basic lessons";
+              const lesson = 10;
+              console.log(`course='${course}' inside if statement`);  
+              console.log(`lesson=${lesson} inside if statement`);  
+              
+            }
+    
+            try{
+              console.log(`course='${course}' outside if statement`);  
+              console.log(`lesson=${lesson} outside if statement`);  
+            }catch(err){
+              console.error(`myFunc:${err.message}`);
+            }
+          }
+    
+          class App{
+            constructor(name){
+              this.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+              this.name = name;
+              this.mouse = {x:0, y:0};
+    
+              document.addEventListener('mousemove', this.mouseMove.bind(this));
+            }
+    
+            mouseMove(evt){
+              console.log(this.name);
+              this.mouse.x = evt.clientX;
+              this.mouse.y = evt.clientY;
+            }
+    
+            showDays(){
+              try{
+                this.days.forEach( function(day){
+                  console.log(`global name: '${name}' app name:'${this.name}' day:'${day}'`);
+                });
+              }catch(err){
+                console.error(`showDays: ${err.message}`);
+              }
+            }
+    
+            showDaysSelf(){
+              try{
+                const self = this;
+                this.days.forEach( function(day){
+                  console.log(`global name: '${name}' game name:'${self.name}' day:'${day}'`);
+                });
+              }catch(err){
+                console.error(`showDays: ${err.message}`);
+              }
+            }
+    
+            showDaysArrow(){
+              this.days.forEach( day => {
+                console.log(`global name: '${name}' game name:'${this.name}' day :'${day}'`);
+              })
+            }
+          }
+          
+          const myApp = new App("Scope example");
+          myApp.showDays();
+          myApp.showDaysSelf();
+          myApp.showDaysArrow();
+        </script>
+    </body>
+</html>
+
