@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arrays</title>
+    </head>
+    <body>
+        <script>
+            const strawhat=["Luffy","Zoro","Nami","Usopp","Sanji","Chopper","Robin","Franky","Brook"];
+            strawhat.push("Jimbei");
+            console.log("There are "+strawhat.length+" strawhats in one piece");
+            console.log("Leader is "+strawhat[0]);
+            strawhat.push("ViVi");
+            const vivi=strawhat.pop();
+            console.log("After alabasta arc "+vivi+" leaved from straw hats");
+            function month(){
+                const months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+                const monthId = new Date().getMonth();
+                return months[monthId];
+            }    
+        </script>
+    </body>
+</html>
